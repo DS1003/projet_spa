@@ -16,7 +16,12 @@
 }
 
 
-
+.contain2 select{
+    height: 3em;
+    color: var(--DustyTeal);
+    font-size: 1em;
+    text-transform: capitalize;
+}
 
 .contain1 > span:nth-child(2) {
     color: var(--main-color);

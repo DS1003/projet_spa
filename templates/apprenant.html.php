@@ -9,7 +9,6 @@
     </div>
     <div class="contain2">
         <span>Referentiel :</span>
-        <span>Dev Web/mobile</span>
         <select name="referenciel" id="select-ref">
             <?php
                 $allrefs = findAllReferentiels();

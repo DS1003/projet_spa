@@ -43,6 +43,8 @@
         </div>
     </div>
 </header>
+
+
 <div class="side-bar">
 
     <div id="close-btn">

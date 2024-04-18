@@ -23,6 +23,8 @@ require_once 'config/fileLoad.php';
         if(array_key_exists($uri, $route)){
             require_once "templates/".$route[$uri].".html.php" ;
             
+        } else {
+   
         }
 
  /* require_once 'templates/partial/footer.html.php';  */      
