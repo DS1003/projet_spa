@@ -12,10 +12,16 @@
         <span>Dev Web/mobile</span>
         <select name="referenciel" id="select-ref">
             <?php
-                foreach($refs as $referent) {
+                $allrefs = findAllReferentiels();
+                foreach($allrefs as $activeref) {
                     // --- select à dynamiser
-                }
+                    if ($activeref['id_promotion'] <= $activePromotion) {
             ?>
+                <option value=""><?= $activeref['nom'] ?></option>
+            <?php
+                }
+            }
+            ?> 
         </select>
     </div>
 </div>
@@ -58,9 +64,7 @@
                 <tbody>
                     <?php
                     foreach ($apprenants as $student) :  
-                    
                         if ($student['id_promotion'] == $activePromotion) {
-                        
                     ?>
                         <tr class="line">
                             <td class="bloc">

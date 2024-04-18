@@ -10,7 +10,7 @@ function listPresence()
 
 // filtrer haut de  la page champ de recherche
 function recherche($search)
-{                                                                                                                                                                                                                                                                                                                                                                       
+{
     $recherches = listPresence();
     $result = [];
     foreach ($recherches as  $recherche) {
@@ -28,6 +28,8 @@ $eleByPage = 6;
 $pageEtu = $_GET['pageAff'] ?? 1;
 $_SESSION['affichePresence'] = $_REQUEST;
 // var_dump($_SESSION['affichePresence']);
+
+
 function filtrerPresences($presences)
 {
 

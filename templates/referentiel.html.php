@@ -12,7 +12,7 @@
 			$refs = recherche($_POST["search"]);
 		}
 
-		$referentiel = findAllReferentiels();
+		
 		
 		foreach ($refs as $referent) :  
 			// ---- filtrer referentiel par promo
@@ -27,11 +27,9 @@
 						<li></li>
 						<li></li>
 						<li></li>
-					</ul>
+					</ul> 
 				</span>
-				<form action="" method="post">
 					<img src="<?= $referent['image'] ?>" onchange="this.form.submit()" name="toappofref" value="<?= $refselcted = $referent['nom'] ?>" alt="">
-				</form>
 				<div class="ref">
 					<span><?= $referent['nom'] ?></span> <br>
 					<span class="active"><?= $referent['statut'] ?></span>

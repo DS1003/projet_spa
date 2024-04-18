@@ -76,6 +76,7 @@
             <?php
 
             foreach ($presence as $student) {
+                if ($student["id_promotion"] == $activePromotion) {
             ?>
                 <tr>
                     <td><?= $student["matricule"]; ?></td>
@@ -87,7 +88,7 @@
                     <td class="<?= $student["status"] == 'present' ? 'present' : 'absent' ?>"><?= $student["status"]; ?></td>
                 </tr>
             <?php
-
+                }
             }
 
             ?>

@@ -26,7 +26,6 @@ function recherche($search)
     return $result;
 }
 
-
 function enablePromotion($idPromo)
 {
     $promotions = findPromotion();
@@ -47,13 +46,11 @@ if (isset($_POST["activation"])) {
 }
 
 
-function findActivePromotion($csvFile)
-{
+function findActivePromotion($csvFile) {
     $handle = fopen($csvFile, "r");
     if ($handle !== false) {
         // Ignorer l'en-tête du fichier CSV
         fgetcsv($handle);
-
         while (($data = fgetcsv($handle)) !== false) {
             // Convertir la ligne CSV en tableau associatif
             $promotion = [
@@ -63,18 +60,15 @@ function findActivePromotion($csvFile)
                 'dateFin' => $data[3],
                 'status' => $data[4]
             ];
-
             // Vérifier si la promotion est active
             if ($promotion['status'] == 1) {
                 fclose($handle);
-                return $promotion['libelle'];
+                return $promotion['id'];
             }
         }
-
         fclose($handle);
     }
     return null; // Aucune promotion active trouvée
 }
-
 
 $activePromotion = findActivePromotion(PATHPROMOTION);

@@ -11,6 +11,18 @@ return $student;
 
 }
 
+function findAllReferentiels()
+{
+
+    // savefile(PATHREFERENTIEL, $referentiel);
+
+    $referentiel = loadFile(PATHREFERENTIEL);
+
+
+    return $referentiel;
+}
+
+
 
 //  filtrer  par email  
 function recherche($filtrer){

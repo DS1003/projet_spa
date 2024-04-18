@@ -61,6 +61,3 @@ function findActivePromotion($csvFile)
 $activePromotion = findActivePromotion(PATHPROMOTION);
 
 
-if (isset($_POST["toappofref"]) && ($_POST["toappofref"]== $refselcted)) {
-    include_once "templates/apprenant.html.php";
-}
