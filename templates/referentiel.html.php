@@ -48,7 +48,6 @@
 	<div class="formRef">
 		<h4>Noueau Référentiel</h4>
 		<span>Libelle</span> <br>
-
 		<i class="fa-regular fa-user" class="first-user"></i>
 		<input type="text" class="libelle" placeholder=" entrer le Libelle"> <br>
 		<i class="fa-regular fa-user" class="twon-user"></i>
