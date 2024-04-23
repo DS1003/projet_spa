@@ -1,5 +1,6 @@
 .content{
-    padding: 1% 1% 0 0;   
+    padding: 1% 1% 0 0; 
+    background-color: white !important;  
 }
 .conteneur{
    
@@ -1099,3 +1100,71 @@ tr:nth-child(even) {
       height: 100px;
     }
   }
+
+
+  /*----------------------------- Dropdown ----------------------------*/
+
+  /* Style général */
+.dropdown > .custom-select {
+    position: relative;
+    display: inline-block;
+    width: 300px; /* Largeur de la liste déroulante */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Style de l'élément sélectionné */
+.dropdown > .custom-select .select-selected {
+    background-color: #f2f2f2;
+    padding: 8px 10px;
+    cursor: pointer;
+}
+
+/* Flèche pour indiquer le déroulement */
+.dropdown > .custom-select .select-selected:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    margin-top: -3px;
+    border-width: 6px 6px 0 6px;
+    border-style: solid;
+    border-color: #888 transparent transparent transparent;
+}
+
+/* Style de la liste des options */
+.dropdown > .custom-select .select-items {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    width: calc(100% - 2px); /* Largeur de la liste déroulante moins la bordure */
+    max-height: 200px; /* Hauteur maximale de la liste déroulante */
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    border-top: none;
+    z-index: 99;
+}
+
+.dropdown > .custom-select .select-items .btn {
+    background-color: rgb(22, 145, 114);
+    padding: 8px 10px;
+    cursor: pointer;
+    color: #fff;
+    width:calc(100% - 2px);
+}
+
+/* Affichage de la liste lorsqu'elle est activée */
+.dropdown > .custom-select.active .select-items {
+    display: block;
+}
+
+/* Style des options */
+.dropdown > .custom-select .select-items div {
+    padding: 8px 10px;
+    cursor: pointer;
+}
+
+/* Effet hover sur les options */
+.dropdown > .custom-select .select-items div:hover {
+    background-color: #ddd;
+}

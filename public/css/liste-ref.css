@@ -1,0 +1,178 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
+}
+
+
+button {
+    border: none;
+}
+
+.content {
+    position: relative;
+    top: -30px;
+    left: -5px;
+    height: 80vh;
+    width: 81vw;
+    background-color: transparent !important;
+    font-size: 2rem !important;
+
+}
+/* ------------------------------------- Liste referentiel ---------------------------------------- */
+.list-ref {
+    height: 75vh;
+    width: 100%;
+    display: flex;
+    background-color: transparent;
+    overflow: hidden;
+}
+.cards {
+    flex: 4;
+    display: flex;
+    flex-wrap: wrap;
+    gap: .7rem;
+}
+.new-ref {
+    display: flex;
+    position: relative;
+    height: 100%;
+    width: 25%;
+    justify-content: center;
+}
+.card {
+    height: 350px;
+    width: 24%;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: #000000 1 1 0 0 0.111;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.card span {
+    align-self: flex-start;
+    margin-left: 1em;
+    font-size: 1em;
+    position: relative;
+    top: 5%;
+}
+.card p {
+    font-size: 1em;
+    z-index: 2;
+    position: relative;
+    top: 20%;
+    margin-left: .5em;
+}
+.formulaire {
+    font-size: 1em;
+    height: 65%;
+    width: 95%;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: #000000 1 1 0 0 0.111;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: .5em;
+    span {
+        align-self: flex-start;
+        margin-left: .5em;
+        margin-top: .5em;
+        font-weight: 800;
+        font-size: 1.2em;
+    }
+    border: 2px solid red;
+}
+.formulaire label {
+    align-self: flex-start;
+    margin-left: 1em;
+    font-size: .8em;
+    margin-top: 1em;
+}
+.formulaire input {
+    width: 95%;
+    height: 15%;
+    padding-left: 2em;
+    border-radius: 5px;
+    border: 1px solid gray;
+}
+.formulaire>button {
+    height: 3em;
+    width: 40%;
+    border-radius: 5px;
+    background-color: #009087;
+    color: white;
+    font-weight: 600;
+    font-size: 1em;
+    cursor: pointer;
+}
+#uploadfile>button {
+    background-color: #009087;
+    height: 2em;
+    color: white;
+    border: none;
+    
+}
+.photo {
+    background-color: whitesmoke;
+    height: 50%;
+    width: 90%;
+    position: relative;
+    top: 12%;
+}
+/*(---------------- Toggle --------------)*/
+.toggle {
+    position: absolute;
+    display: inline-block;
+    width: 58px;
+    height: 30px;
+    left: 7%;
+    top: 58%;
+}
+
+.toggle>input {
+    display: none;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #c0c0c0c2;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 22px;
+    width: 22px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked+.slider {
+    background-color: #009087;
+}
+
+input:focus+.slider {
+    box-shadow: 0 0 1px #009087;
+}
+
+input:checked+.slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}

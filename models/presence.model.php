@@ -1,7 +1,6 @@
 <?php
 
-function listPresence()
-{
+function listPresence() {
     // savefile(PATHPRESENCE, $presence);
 
     $presence = loadFile(PATHPRESENCE);
@@ -9,8 +8,7 @@ function listPresence()
 }
 
 // filtrer haut de  la page champ de recherche
-function recherche($search)
-{
+function recherche($search) {
     $recherches = listPresence();
     $result = [];
     foreach ($recherches as  $recherche) {
@@ -24,7 +22,7 @@ function recherche($search)
 
 // filtre et pagination 
 $presences = listPresence();
-$eleByPage = 6;
+$eleByPage = 10;
 $pageEtu = $_GET['pageAff'] ?? 1;
 $_SESSION['affichePresence'] = $_REQUEST;
 // var_dump($_SESSION['affichePresence']);
@@ -40,6 +38,7 @@ function filtrerPresences($presences)
     return ($statut_filtre == "" || $presences["status"] == $statut_filtre) &&
         ($referentiel_filtre == "" ||  $presences["referenciel"] == $referentiel_filtre);
 }
+
 $listeFiltre = array_filter($presences, 'filtrerPresences');
 
 $totalPage = ceil(count($listeFiltre) / $eleByPage);

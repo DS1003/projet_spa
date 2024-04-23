@@ -51,7 +51,7 @@
 		<i class="fa-regular fa-user" class="first-user"></i>
 		<input type="text" class="libelle" placeholder=" entrer le Libelle"> <br>
 		<i class="fa-regular fa-user" class="twon-user"></i>
-		<textarea name="text" id="desc" cols="10" rows="5" placeholder="entrer la  descrition"></textarea>
+		<textarea name="description" id="desc" cols="10" rows="5" placeholder="entrer la  descrition"></textarea>
 		<button class="btn">Enregistrer</button>
 	</div>
 </div>

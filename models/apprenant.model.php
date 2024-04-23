@@ -56,6 +56,19 @@ if (isset($_POST["search"])){
     $apprenants= recherche($_POST["search"]);
 }
 
+function filterByReferentiel($data, $selectedReferentiels) {
+    if (!empty($selectedReferentiels)) {
+        $filteredData = array_filter($data, function($item) use ($selectedReferentiels) {
+            return in_array($item['id_referentiel'], $selectedReferentiels);
+        });
+        return $filteredData;
+    } else {
+        return $data;
+    }
+}
+
+
+
 
 function listPresence()
 {
@@ -106,10 +119,6 @@ $etudiantsPage = array_slice($listeFiltre, $eleDeb, $eleByPage);
 
 $presence = listPresence();
 $presence = $etudiantsPage;
-if (isset($_POST["search"])) {
-    $presence = recherche($_POST["search"]);
-}
-
 
 
 function findActivePromotion($csvFile)
@@ -143,3 +152,7 @@ function findActivePromotion($csvFile)
 
 
 $activePromotion = findActivePromotion(PATHPROMOTION);
+
+
+$refsSelect = $_POST['id_referentiel'];
+$reftoshow = filterByReferentiel($apprenants, $refsSelect);

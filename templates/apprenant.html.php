@@ -7,22 +7,66 @@
         <span>Promotion:</span>
         <span><?php echo $activePromotion !== null ?  $activePromotion : 'Aucune promotion active' ?> </span>
     </div>
-    <div class="contain2">
+    <!-- <form class="contain2">
         <span>Referentiel :</span>
         <select name="referenciel" id="select-ref">
             <?php
-                $allrefs = findAllReferentiels();
-                foreach($allrefs as $activeref) {
-                    // --- select à dynamiser
-                    if ($activeref['id_promotion'] <= $activePromotion) {
+            $allrefs = findAllReferentiels();
+            foreach ($allrefs as $activeref) {
+                // --- select à dynamiser
+                if ($activeref['id_promotion'] <= $activePromotion) {
             ?>
-                <option value=""><?= $activeref['nom'] ?></option>
+                    <option value=""><?= $activeref['nom'] ?></option>
             <?php
                 }
             }
-            ?> 
+            ?>
         </select>
-    </div>
+        <button>valider</button>
+    </form> -->
+
+    <?php
+    // Assurez-vous que le formulaire a été soumis
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        // Vérifiez si des valeurs ont été soumises
+        if (isset($_POST['referentielPromoSelect'])) {
+            // Récupérez les valeurs des cases à cocher
+            $selectedReferentiels = $_POST['referentielPromoSelect'];
+
+            // Utilisez les valeurs sélectionnées comme nécessaire, par exemple :
+            foreach ($selectedReferentiels as $selectedReferentiel) {
+                echo "Référentiel sélectionné : " . $selectedReferentiel . "<br>";
+                // Vous pouvez effectuer d'autres actions avec chaque référentiel sélectionné ici
+            }
+        } else {
+            // Aucune case à cocher n'a été cochée
+            echo "Aucun référentiel sélectionné.";
+        }
+    }
+    ?>
+
+    <form action="" method="post" class="dropdown">
+        <div class="custom-select" onclick="this.classList.toggle('active')">
+            <div class="select-selected">Référenciels</div>
+            <div class="select-items">
+                <?php
+                $allrefs = findAllReferentiels();
+                foreach ($allrefs as $activeref) {
+                    if ($activeref['id_promotion'] <= $activePromotion) {
+                ?>
+                        <div>
+                            <input type="checkbox" id="referentiel_<?= $activeref['id_referentiel'] ?>" name="referentielPromoSelect[]" value="<?= $activeref['nom'] ?>">
+                            <label for="referentiel_<?= $activeref['id_referentiel'] ?>"><?= $activeref['nom'] ?></label>
+                        </div>
+                <?php
+                    }
+                }
+                ?>
+                <button class="btn" type="submit">Valider</button>
+            </div>
+        </div>
+    </form>
+
 </div>
 
 <div class="content">
@@ -55,54 +99,60 @@
                     <th class="titre" data-label="Nom">Nom</th>
                     <th class="titre prenom" data-label="Prenom">Prenom</th>
                     <th class="titre email1" data-label="Email">Email</th>
-                    <th class="titre" data-label="Genre">Genre</th>
-                    <th class="titre" data-label="Telephones">Telephones</th>
+                    <th class="titre" data-label="Genre">Référentiel</th>
+                    <th class="titre" data-label="Telephones">Genre</th>
+                    <th class="titre" data-label="Actions">Téléphones</th>
                     <th class="titre" data-label="Actions">Actions</th>
                 </tr>
 
                 <tbody>
                     <?php
-                    foreach ($apprenants as $student) :  
-                        if ($student['id_promotion'] == $activePromotion) {
+                    foreach ($apprenants as $student) :
+                        if ($student['id_promotion'] == $activePromotion ) {
+
                     ?>
-                        <tr class="line">
-                            <td class="bloc">
-                                <div class="col-haut"></div>
-                                <div class="col-bas"><img src="public/images/icon.png" width="30px"></div>
-                            </td>
-                            <td class="bloc">
-                                <div class="col-haut"></div>
-                                <div class="col-bas" style="color:rgb(29, 109, 29);"><?= $student['nom'] ?></div>
-                            </td>
-                            <td class="bloc">
-                                <div class="col-haut"></div>
-                                <div class="col-bas" style="color:rgb(29, 109, 29);"><?= $student['prenom'] ?></div>
-                            </td>
-                            <td class="bloc">
-                                <div class="col-haut"></div>
-                                <div class="col-bas email"><?= $student['email'] ?></div>
-                            </td>
-                            <td class="bloc">
-                                <div class="col-haut"></div>
-                                <div class="col-bas"><?= $student['genre'] ?></div>
-                            </td>
-                            <td class="bloc">
-                                <div class="col-haut"></div>
-                                <div class="col-bas"><?= $student['telephone'] ?></div>
-                            </td>
-                            <td class="bloc">
-                                <div class="col-haut"></div>
-                                <input type="checkbox" id="my-checkbox-0" <?php if ($student['action']) : ?> checked <?php endif; ?>>
-                                <label for="my-checkbox-0"></label>
+                            <tr class="line">
+                                <td class="bloc">
+                                    <div class="col-haut"></div>
+                                    <div class="col-bas"><img src="public/images/icon.png" width="30px"></div>
+                                </td>
+                                <td class="bloc">
+                                    <div class="col-haut"></div>
+                                    <div class="col-bas" style="color:rgb(29, 109, 29);"><?= $student['nom'] ?></div>
+                                </td>
+                                <td class="bloc">
+                                    <div class="col-haut"></div>
+                                    <div class="col-bas" style="color:rgb(29, 109, 29);"><?= $student['prenom'] ?></div>
+                                </td>
+                                <td class="bloc">
+                                    <div class="col-haut"></div>
+                                    <div class="col-bas email"><?= $student['email'] ?></div>
+                                </td>
+                                <td class="bloc">
+                                    <div class="col-haut"></div>
+                                    <div class="col-bas email"><?= $student['id_referentiel'] ?></div>
+                                </td>
+                                <td class="bloc">
+                                    <div class="col-haut"></div>
+                                    <div class="col-bas"><?= $student['genre'] ?></div>
+                                </td>
+                                <td class="bloc">
+                                    <div class="col-haut"></div>
+                                    <div class="col-bas"><?= $student['telephone'] ?></div>
+                                </td>
+                                <td class="bloc">
+                                    <div class="col-haut"></div>
+                                    <input type="checkbox" id="my-checkbox-0" <?php if ($student['action']) : ?> checked <?php endif; ?>>
+                                    <label for="my-checkbox-0"></label>
 
-                            </td>
-                        </tr>
+                                </td>
+                            </tr>
 
-                    <?php 
-                       } else {
-                            continue ;
-                       }
-                        endforeach; 
+                    <?php
+                        } else {
+                            continue;
+                        }
+                    endforeach;
                     ?>
                     <!-- Ajoutez d'autres lignes ici si nécessaire -->
                 </tbody>

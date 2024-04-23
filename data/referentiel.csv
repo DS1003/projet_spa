@@ -1,6 +1,8 @@
 id_referentiel,image,nom,statut,id_promotion
 1,https://myviewboard.com/blog/wp-content/uploads/2020/08/MP0027-01-scaled.jpg,"Dev Web/mobile",Active,1
 2,https://myviewboard.com/blog/wp-content/uploads/2020/08/MP0027-01-scaled.jpg,"Référence Digital",Active,3
-3,https://myviewboard.com/blog/wp-content/uploads/2020/08/MP0027-01-scaled.jpg,"AWS",Active,5
+3,https://myviewboard.com/blog/wp-content/uploads/2020/08/MP0027-01-scaled.jpg,AWS,Active,5
 5,https://myviewboard.com/blog/wp-content/uploads/2020/08/MP0027-01-scaled.jpg,"Dev data",Active,2
-6,https://myviewboard.com/blog/wp-content/uploads/2020/08/MP0027-01-scaled.jpg,"Hackeuse",Active,6
+6,https://myviewboard.com/blog/wp-content/uploads/2020/08/MP0027-01-scaled.jpg,Hackeuse,Active,6
+7,data/allreferentiel.csv662742b7ada46.png,jhgzFUIZE,Active,0
+8,data/referentiel.csv66274c3e55854.jpeg,"Gaming Dev",Active,
