@@ -1,5 +1,5 @@
 <?php
-$users = listerTab('datas/users.csv');
+$users = [1, 1]; //listerTab('datas/users.csv');
 
 
 if (!empty($_POST)) {

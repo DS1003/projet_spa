@@ -19,7 +19,7 @@
             ?>
             <div class="card">
                 <span>...</span>
-                <div class="photo"><img style="height: 170px;" src="<?= $referent['image'] ?>" onchange="this.form.submit()" name="toappofref" value="<?= $refselcted = $referent['nom'] ?>" alt=""></div>
+                <div class="photo"><img style="height: 170px; max-width: 268px; overflow:hidden;" src="<?= $referent['image'] ?>" onchange="this.form.submit()" name="toappofref" value="<?= $refselcted = $referent['nom'] ?>" alt=""></div>
                 <p style="font-weight: 600;"><?= $referent['nom'] ?></p>
                 <p style="color: green; cursor: pointer;"><?= $referent['statut'] ?></p>
             </div>
@@ -40,6 +40,7 @@
                 <input type="text" placeholder="Entrez le libelle" name="nom">
                 <label for="">Description</label>
                 <input type="description" placeholder="Entrez la description" name="description">
+                <span style="color: red; position: absolute; top:22%; font-size: .7em;">Ce champs est obligatoire !!!</span>
                 <input id="uploadfile" type="file" name="image" value="image">
                 <button type="submit">Enregistrer</button>
                 <input type="hidden">

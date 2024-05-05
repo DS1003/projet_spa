@@ -11,13 +11,14 @@ require_once 'config/fileLoad.php';
         '/promotion' => 'promotion',
         '/referentiel' => 'liste-ref',
         '/dropdown.html.php' => 'dropdown',
+        '/list-referentiel.html.php' => 'list-referentiel',
     ];
     
     $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
     
-    require_once "models/".$uri.".model.php";
+    //include "models/".$uri.".model.php";
 
-        require_once 'templates/partial/header.html.php';
+        //require_once 'templates/partial/header.html.php';
 
         if(array_key_exists($uri, $route)){
             include "templates/".$route[$uri].".html.php" ;

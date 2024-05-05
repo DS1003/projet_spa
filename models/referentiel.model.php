@@ -125,6 +125,7 @@ function isRefExists($nom) {
     return false; // Le référentiel n'existe pas encore
 }
 
+
 function uploadImage($file) {
     $targetDir = PATHREFERENTIEL; // Répertoire où enregistrer les images téléchargées
     $targetFile = $targetDir . basename($file["name"]);
@@ -139,7 +140,6 @@ function uploadImage($file) {
         //     echo "Désolé, votre fichier est trop volumineux.";
         //     return false;
         // }
-        
         // Déplacer le fichier téléchargé vers le répertoire de destination avec le nouveau nom
         if (move_uploaded_file($file["tmp_name"], $targetDir . $newFileName)) {
             return $targetDir . $newFileName;
@@ -188,29 +188,39 @@ function addRefToCSV($nom, $image, $statut, $id_promotion) {
 }
 
 if (isset($_POST["add-ref"])) {
+    $errornom;
+    $errordescription;
     $nom = $_POST["nom"];
     $description = $_POST["description"];
     $image = $_FILES["image"];
     $statut = "Active"; // Statut par défaut
     $id_promotion = isset($_POST["toactivepromo"]) ? $activePromotion : null;
+    
 
     // Vérifier si les champs nom et description sont vides
     if (empty($nom) && empty($description)) {
-        echo "Les champs nom et description sont obligatoires.";
+        $_SESSION['$nom'] = "es champs nom et description sont obligatoires.";
     } elseif (empty($nom)) {
         echo "Le champ nom est obligatoire.";
     } elseif (empty($description)) {
         echo "Le champ description est obligatoire.";
     } elseif (isRefExists($nom)) {
         echo "Un référentiel avec ce nom existe déjà.";
-    } else {
+    }
         // Ajouter le référentiel au fichier CSV
         if (addRefToCSV($nom, $image, $statut, $id_promotion)) {
             echo "Le référentiel a été ajouté avec succès au fichier CSV.";
         } else {
             echo "Une erreur s'est produite lors de l'ajout du référentiel au fichier CSV.";
         }
+    
+}
+
+function displayErrorMessage() {
+    if (isset($_SESSION['error_message'])) {
+        echo $_SESSION['error_message'];
+        unset($_SESSION['error_message']); // Efface le message d'erreur après l'avoir affiché
     }
 }
 
-
+"Pour les messages d'erreurs jedois crée un tableau d'erreur puis mettre"; 

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Gestion-ODC</title>
     <link rel="stylesheet" href="/public/css<?=$uri?>.css">
     <link rel="stylesheet" href="/public/css/liste-ref.css">
     <link rel="stylesheet" href="public/css/main.css">
@@ -36,7 +36,7 @@
     <div class="flex-right">
         <input type="date" name="dateofbirth" id="dateofbirth" value="<?= date('Y-m-d');?>">
         <div class="profil">
-            <img src="public/images/profile.jpeg" class="image" alt="">
+            <img src="public/images/avatar.jpeg" class="image" alt="" >
             <div class="info">
                 <p>Super Admin</p>
                 <small>Admin <i class="fa fa-angle-down" aria-hidden="true"></i></small>
